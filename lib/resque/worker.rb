@@ -405,7 +405,7 @@ module Resque
       data = redis.get("worker:#{self}")
       return false unless data
       data = decode( data )
-      return data[:payload] == job.payload && data[:queue].to_s == job.queue.to_s
+      return data['payload'] == job.payload && data['queue'].to_s == job.queue.to_s
     end
     
     # Given a job, tells Redis we're working on it. Useful for seeing
