@@ -392,7 +392,7 @@ module Resque
     # Ensures that a worker is processing a right job.
     # Normally working_on and done_working methods are called before and after perform call,
     # however resque-jobs-per-fork handles multiple jobs without setting proper context,
-    # so it is important to make sure that worker knows which job it is actually processsing.
+    # so it is important to make sure that worker knows which job it is actually processing.
     # also see resque-jobs-per-fork gem
     def ensure_working_on(job)
       return if working_on?(job)
