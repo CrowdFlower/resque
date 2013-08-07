@@ -402,10 +402,7 @@ module Resque
 
     # checks whether a worker is processing a job it thinks it is processing 
     def working_on?(job)
-      data = redis.get("worker:#{self}")
-      return false unless data
-      data = decode( data )
-      return data['payload'] == job.payload && data['queue'].to_s == job.queue.to_s
+      job.worker == self
     end
     
     # Given a job, tells Redis we're working on it. Useful for seeing
